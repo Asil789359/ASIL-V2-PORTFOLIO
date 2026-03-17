@@ -2,277 +2,1028 @@
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-    background-color: #1e1a20;
-    font-size: 1vh;
-    color: white;
+*::selection {
+    background-color: transparent;
 }
 
-@media (orientation:portrait) {
-    html {
-        font-size: 1.25vw;
+html, body {
+    max-width: 100%;
+    overflow: auto;
+}
+
+.message::selection {
+    color: red;
+    background-color: transparent;
+}
+
+@media (orientation: landscape) {
+    .botLanding {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        font-size: 1rem;
+        padding-left: 1.25rem;
+        padding-bottom: 1.25rem;
+        font-family: 'Nunito', sans-serif;
+        text-align: left;
     }
-}
-@media (orientation:landscape) {
-    html {
-        font-size: 1.25vh;
+
+    .middleAlways {
+        position: absolute;
+        width: 100vw;
+        height: 50vh;
+        
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-}
 
+    @media screen and ( max-width: 1400px ) {
+        html {
+            font-size: 30px;
+            max-width: 100%;
+            overflow: auto;
+        }
 
-/* html,
-body
-{
-    overflow: hidden;
-} */
+        .portName {
+            width: 100%;
+            /* height: 10.5vh; */
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            font-family: 'Spectral', serif;
+            white-space: nowrap;
+        }
+        
+        .portNameUnderline {
+            border-bottom: 2px solid red;
+            background-color: red;
+            position: relative;
+            width: 100%;
+            height: 2px;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+        }
+        
+        .portType {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.35rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        
+        .portDescription {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.5rem;
+        }
+        
+        .portTasks {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portNotes {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            min-height: 5vh;
+            font-size: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portSkills {
+            font-family: 'Spectral', serif;
+            width: 100%;
+            min-height: 5vh;
+            font-size: 0.3rem;
+        }
+
+        .extraSkillsTextSize {
+            font-size: 0.7rem;
+        }
+        .navTabs {
+            font-size: 0.5rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+        .topLanding {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 3rem;
+            padding-left: 1rem;
+            padding-right: 0rem;
+            padding-bottom: 0rem;
+        }
+
+        .scrollTop {
+            position: absolute;
+            font-size: 2rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: red; */
+            color: white;
+            box-sizing: border-box;
+            
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0px 0px 1px red, 0px -0px 1px red, -0px -0px 1px red, -0px 0px 1px red;
+        }
+        
+        .scrollBottom {
+            position: absolute;
+            font-size: 2rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black; */
+            color: white;
+            box-sizing: border-box;
+            
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0px 0px 1px black, 0px -0px 1px black, -0px -0px 1px black, -0px 0px 1px black;
+        }
+        
+        .scrollMainText {
+            position: absolute;
+            font-size: 2rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black; */
+            color: black;
+            box-sizing: border-box;
+            
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0px 0px 1px black, 0px -0px 1px black, -0px -0px 1px black, -0px 0px 1px black;
+        }
+        .sliderTextSize {
+            font-size: 1rem;
+            white-space: nowrap;  
+        }
+        .topDescription {
+            font-size: 0.5rem;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+        
+        .botDescription {
+            font-size: 0.5rem;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        
+        .sideNote {
+            font-size: 0.4rem;
+            text-align: center;
+            font-style: italic;
+            font-family: 'Merriweather', serif;
+        }
+    }
+    @media screen and ( min-width: 1400px ) {
+        html {
+            font-size: 50px;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .portName {
+            width: 100%;
+            /* height: 10.5vh; */
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+            font-family: 'Spectral', serif;
+            white-space: nowrap;
+        }
+
+        .portNameUnderline {
+            border-bottom: 2px solid red;
+            background-color: red;
+            position: relative;
+            width: 100%;
+            height: 2px;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+        }
+
+        .portType {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        .portDescription {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.6rem;
+        }
+
+        .portTasks {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            font-size: 0.55rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .portNotes {
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            min-height: 5vh;
+            font-size: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .portSkills {
+            font-family: 'Spectral', serif;
+            width: 100%;
+            min-height: 5vh;
+            font-size: 0.6rem;
+        }
+
+        .extraSkillsTextSize {
+            font-size: 1rem;
+        }
+        .navTabs {
+            font-size: 0.3rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .topLanding {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 0rem;
+            
+        }
+        .scrollTop {
+            position: absolute;
+            font-size: 3rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: red; */
+            color: white;
+            box-sizing: border-box;
+            
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 2px red, 2px -2px 2px red, -2px -2px 2px red, -2px 2px 2px red;
+        }
+        
+        .scrollBottom {
+            position: absolute;
+            font-size: 3rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black; */
+            color: white;
+            box-sizing: border-box;
+            
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 2px black, 2px -2px 2px black, -2px -2px 2px black, -2px 2px 2px black;
+        }
+        
+        .scrollMainText {
+            position: absolute;
+            font-size: 3rem;
+             font-family: 'Spectral', serif;
+            /* -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black; */
+            color: black;
+            box-sizing: border-box;
+            
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0px 0px 1px black, 0px -0px 1px black, -0px -0px 1px black, -0px 0px 1px black;
+        }
+        .sliderTextSize {
+            font-size: 3rem;
+            white-space: nowrap;
+        }
+        .topDescription {
+            font-size: 0.65rem;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+        
+        .botDescription {
+            font-size: 0.65rem;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        
+        .sideNote {
+            font-size: 0.55rem;
+            text-align: center;
+            font-style: italic;
+            font-family: 'Merriweather', serif;
+        }
+    }
+  }
+  
+  @media (orientation: portrait) {
+    html {
+        font-size: 20px;
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    .portName {
+        width: 100%;
+        /* height: 10.5vh; */
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+        font-family: 'Spectral', serif;
+        white-space: nowrap;
+    }
+    
+    .portNameUnderline {
+        border-bottom: 2px solid red;
+        background-color: red;
+        position: relative;
+        width: 100%;
+        height: 2px;
+        top: 0;
+        left: 0;
+        transform-origin: left;
+    }
+    
+    .portType {
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        font-size: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    
+    .portDescription {
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+    
+    .portTasks {
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        font-size: 0.65rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .portNotes {
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        min-height: 5vh;
+        font-size: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .portSkills {
+        font-family: 'Spectral', serif;
+        width: 100%;
+        min-height: 5vh;
+        font-size: 0.5rem;
+    }    
+
+    .topSkillsMove {
+        padding-top: 10rem;
+    }
+    .botSkillsMove {
+        padding-bottom: 10rem;
+    }
+    .extraSkillsTextSize {
+        font-size: 1rem;
+    }
+    .navTabs {
+        font-size: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+    .botLanding {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        font-size: 1rem;
+        padding-left: 1.25rem;
+        padding-bottom: 14rem;
+        font-family: 'Nunito', sans-serif;
+        text-align: left;
+    }
+    .topLanding {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0rem;
+        padding-top: 10rem;
+    }
+
+    .middleAlways {
+        position: absolute;
+        width: 100vw;
+        height: 50vh;
+        
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10rem;
+    }
+
+    .scrollTop {
+        position: absolute;
+        font-size: 2rem;
+         font-family: 'Spectral', serif;
+        /* -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: red; */
+        color: white;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0px 0px 1px red, 0px -0px 1px red, -0px -0px 1px red, -0px 0px 1px red;
+    }
+    
+    .scrollBottom {
+        position: absolute;
+        font-size: 2rem;
+         font-family: 'Spectral', serif;
+        /* -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: black; */
+        color: white;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0px 0px 1px black, 0px -0px 1px black, -0px -0px 1px black, -0px 0px 1px black;
+    }
+    
+    .scrollMainText {
+        position: absolute;
+        font-size: 2rem;
+         font-family: 'Spectral', serif;
+        /* -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: black; */
+        color: black;
+        box-sizing: border-box;
+        
+        text-align: center;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0px 0px 1px black, 0px -0px 1px black, -0px -0px 1px black, -0px 0px 1px black;
+    }
+    .sliderTextSize {
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+    .topDescription {
+        font-size: 0.7rem;
+        text-align: left;
+        margin-bottom: 7rem;
+    }
+    
+    .botDescription {
+        font-size: 0.7rem;
+        text-align: right;
+        margin-bottom: 1rem;
+    }
+    
+    .sideNote {
+        font-size: 0.6rem;
+        text-align: center;
+        font-style: italic;
+        font-family: 'Merriweather', serif;
+    }
+  }
 
 body {
-    overflow: hidden;
+    background-color: white;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    z-index: 100;
+    font-size: 10px;
+    box-sizing: border-box;
+    /* text-shadow: 1px 1px white, -1px -1px white, -1px 1px white, 1px -1px white ; */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    width: 100vw;
+    height: 100vh;
 }
 
-.webgl
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.mainCanvas
 {
     position: fixed;
     outline: none;
     box-sizing: border-box;
+    /* border: 5px solid blue; */
+    z-index: 1000;
+    /*  */
+}
+
+/* Slider */
+.slider {
+    position: absolute;
+    z-index: 10000;
+    overflow-x: hidden;
+}
+
+.section {
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#portfolioSection {
+    height: 600vh;
+}
+
+.portfolioEntry {
+    width: 100vw;
+    height: 100vh;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.portfolioTextDiv {
+    width: 40vw;
+    height: 100vh;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.back {
+    z-index: 1;
+}
+
+.top {
+    z-index: 10000;
+}
+
+.half {
+    height: 50vh;
+    width: 100vw;
+}
+
+/* Pointers */
+#landingSection {
+    pointer-events: none;
+}
+
+/* Extra */
+#extraSection {
+    height: 200vh;
+    justify-content: flex-start;
+}
+
+.middleScrollDiv {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.topSliderText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Spectral', serif;
+}
+
+.botSliderText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    color: black;
+    bottom: 0;
+    z-index: 1000;
+    font-family: 'Spectral', serif;
+}
+
+.leftSliderText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    z-index: 900;
+    text-align: right;
+    padding-top: 0;
+    font-family: 'Spectral', serif;
+}
+
+.rightSliderText {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 100vh;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    text-align: left;
+    padding-bottom: 10vh;
+    font-family: 'Spectral', serif;
+
+}
+
+/* Room */
+.roomList {
+    width: 25vw;
+    height: 90vh;
+    font-family: 'Spectral', serif;
     /* border: 2px solid black; */
 }
 
-.infoModal {
-    height: 100vh;
-    width: 30rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: transparent;
-    /* border-radius: 2rem 2rem 0rem 0rem; */
-    color: white;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    display: none;
-}
-
-.infoModalMain {
-    height: calc(100% - 5vh);
-    width: 30rem;
-    right: 0;
-    top: 0;
-    position: absolute;
-    background-color: transparent;
-    /* border-radius: 2rem 2rem 0rem 0rem; */
-    /* padding: 2rem; */
-    color: white;
-    box-sizing: border-box;
-    /* display: none; */
-    /* border: 2px solid blue; */
-}
-
-.redStrip {
-    height: 95%;
-    width: 7.5rem;
-    position: absolute;
-    /* right: 10vh; */
-    left: 2rem;
-    top: 0;
-    background-color: rgb(200, 0, 0);
-    box-sizing: border-box;
-    overflow: hidden;
-    z-index: 200;
-    /* box-shadow: 0px 3px 3px black; */
-    /* border: 2px solid blue; */
-}
-
-.h1Div {
-    font-size: 3.5rem;
-    /* font-style: italic; */
-    margin-bottom: 4rem;
-    font-weight: bold;
-    /* text-shadow: 3px 3px 1px black; */
-}
-
-.h3Div {
-    font-size: 1.5rem;
-    /* font-style: italic; */
-    /* margin-left: 3vw; */
-    text-align: right;
-    /* text-shadow: 3px 3px 1px black; */
-    font-weight: bold;
-    color: white;
-}
-
-.h3Div2 {
-    font-size: 2rem;
-    /* font-style: italic; */
-    /* margin-left: 3vw; */
-    text-align: left;
-    /* text-shadow: 3px 3px 1px black; */
-    font-weight: bold;
-    color: white;
-}
-
-.redText {
-    font-weight: bold;
-    color: red;
-}
-
-.contentGrey {
-    height: calc(100% - 5vh);
-    width: 30rem;
-    position: absolute;
-    right: 5rem;
-    top: 5vh;
-    background-color: #121617;
-    /* border-radius: 2rem 2rem 0rem 0rem; */
-    color: red;
-    box-sizing: border-box;
-    /* display: none; */
-    /* border: 2px solid blue;  */
-    z-index: 150;
-    padding: 2rem;
-}
-
-.contentRed {
-    height: 100vh;
-    width: 30rem;
-    position: relative;
-    right: calc(5rem + 2rem);
-    top: 5vh;
-    background-color: transparent;
-    /* border-radius: 2rem 2rem 0rem 0rem; */
-    color: white;
-    /* text-shadow: 3px 3px 1px black; */
-    box-sizing: border-box;
-    /* display: none; */
-    /* border: 2px solid blue;  */
-    z-index: 100000;
-    padding: 2rem;
-
-}
-
-::selection {
-    background-color: transparent;
-  }
-
-.closer {
-    z-index: 1000;
-    position: absolute;
-    right: 1vh;
-    top: 1vh;
+.listItem {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.6rem;
+    padding-left: 1rem;
+    pointer-events: auto;
     cursor: pointer;
+    /* white-space: nowrap; */
+    /* border: 2px solid black; */
 }
 
-.display {
-    display: block;
+.roomDescription {
+    width: 27.5vw;
+    height: 100vh;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    opacity: 0;
 }
 
-@keyframes insertAnimationFromBelow {
-    0% {
-        opacity: 0;
-        transform: translateY(100vh);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.descriptionDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    top: 100vh;
+    /* border: 2px solid red; */
+    width: 30vw;
+    padding-right: 1rem;
 }
 
-@keyframes insertAnimationFromAbove {
-    0% {
-        opacity: 0;
-        transform: translateY(-100vh);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hidden {
+    opacity: 0;
 }
 
-@keyframes stay {
-    0% {
-        opacity: 0;
-        transform: translateY(200vh);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#roomSection {
+    pointer-events: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
-.displayGrey {
-    animation: insertAnimationFromBelow 1s forwards;
+.chosen {
+    backdrop-filter: invert(100%);
+    color: white;
 }
 
-.displayRed {
-    animation: insertAnimationFromAbove 1s forwards;
+/* Skills */
+.topSkillsText {
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top: 200vh;
+    left: 0;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
-.stay {
-    animation: stay 1s forwards;
+.botSkillsText {
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top: 250vh;
+    left: 0;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
-.displayGreyx {
-    animation: insertAnimationFromBelowx 0.5s forwards;
+/* Nav */
+.navBar {
+    width: 100vw;
+    z-index: 1000000;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* border: 2px solid red; */
+    pointer-events: none;
+    font-family: 'Raleway', sans-serif;
 }
 
-.displayRedx {
-    animation: insertAnimationFromAbovex 0.5s forwards;
+.currentTab {
+    backdrop-filter: invert(100%);
+    color: white;
 }
 
-.stayx {
-    animation: stayx 0.5s forwards;
+
+.sideSliderTextSize {
+    font-size: 0.8rem;
 }
 
-@keyframes insertAnimationFromBelowx {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(100vh);
-    }
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+width: 10px;
 }
 
-@keyframes insertAnimationFromAbovex {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100vh);
-    }
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: rgba(150, 150, 150, 0.5);
 }
 
-@keyframes stayx {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(200vh);
-    }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    backdrop-filter: invert(100%);
+}
+
+/* Fonts */
+.Spectral {
+    font-family: 'Spectral', serif;
+}
+
+.back {
+    position: absolute;
+}
+
+.link {
+    font-size: 1rem;
+    font-family: 'Spectral', serif;
+    text-decoration: none;
+    padding: 1rem;
+    border: 2px solid black;
+    box-shadow: -5px 5px 1px black;
+    color: black;
+}
+
+.linkProject {
+    font-family: 'Spectral', serif;
+    text-decoration: none;
+    padding: 0.2rem;
+    border: 2px solid red;
+    box-shadow: -5px 5px 1px black;
+    color: black;
+    background-color: white;
+}
+
+.negative {
+    backdrop-filter: invert(100%);
+    color: white;
+}
+
+.positive {
+    color: black;
+}
+
+/* Final Section */
+#contactSection {
+    height: 200vh;
+}
+
+#gumSection {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Spectral', serif;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#finalSection {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blueGum {
+    color: #92f5ff;
+    text-shadow: 0 0 2px black;
+}
+
+.redGum {
+    color: #ffc3c3;
+    text-shadow: 0 0 2px black;
+}
+
+.yellowGum {
+    color: #f9ff94;
+    text-shadow: 0 0 2px black;
+}
+
+.Monoton {
+    font-family: 'Monoton', cursive;
+}
+
+.Cerdaville {
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.Oi {
+    font-family: 'Oi', cursive;
+}
+
+.seeThrough {
+    filter: opacity(50%);
+}
+
+/* Loading Page */
+.loadingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh;
+    background-color: white;
+    color: black;
+    z-index: 100000000000000000000000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20vh;
+}
+
+.mainLoadingDiv {
+    width: 100vw;
+    /* border: 2px solid yellow; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.halfLoadingBar {
+    position: absolute;
+    width: 100vw;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loadingLetter {
+    width: calc(100vw/7);
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Spectral', serif;
+}
+
+#allDoneText {
+    position: relative;
+    left: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backdrop-filter: invert(100%);
+    color: white;
+}
+
+#allDone {
+    position: absolute;
+    z-index: 1000000000000000000000;
+    /* border: 2px solid red; */
+    background-color: white;
+    right: 100vw;
+}
+
+.loadPercent {
+    position: absolute;
+    bottom: 0;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-size: 0.5rem;
+    margin-bottom: 20vh;
+}
+
+.loadingNotes {
+    position: absolute;
+    top: 0;
+    color: black;
+    font-size: 0.5rem;
+    margin-top: 2.5vh;
+    font-family: 'Merriweather', serif;
 }
 
 /*# sourceMappingURL=main.css.map*/
